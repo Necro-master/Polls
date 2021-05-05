@@ -22,7 +22,7 @@ def poll_page(request, poll_id):
         for q in questions:
             answerquestions.append(AnswerQuestion(question=q, answer=answer))
             if q.type == QuestionType.TEXT:
-                answerquestions[-1].text = data[f'{q.pk}']
+                answerquestions[-1].text = data[f'{q.pk}'][0]
         answerchoices = []
         for aq in answerquestions:
             answerchoices += [AnswerChoice(answerquestion=aq, choice=Choice.objects.get(pk=int(e)))
