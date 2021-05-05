@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ poll }}</title>
+</head>
+<body>
+    <h1>{{ poll.title }}</h1>
+    <h2>{{ poll.subtitle }}</h2>
+    <form method="post">
+    {% csrf_token %}
+    {{ nameform.as_p }}
+    {% for q, f in question_form %}
+        {{ f.as_p }}
+    {% endfor %}
+    <button type="submit">Save</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+    {% for poll in polls %}
+            <a href="/poll/{{ poll.id }}">{{ poll }}</a>
+        {% if auth %}
+            <a href="poll/{{ poll.id }}/answers">Посмотреть результат</a>
+        {% endif %}
+    <br>
+    {% endfor %}
+</body>
+</html>
